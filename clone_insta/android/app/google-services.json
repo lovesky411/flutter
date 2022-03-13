@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "594395038242",
+    "project_id": "bflix-1e43b",
+    "storage_bucket": "bflix-1e43b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594395038242:android:85db667b7dc29d5e49407b",
+        "android_client_info": {
+          "package_name": "com.example.clone_insta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594395038242-snmf8hejj19rdaa3tomh9m1fpugrqa6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCciFVsDFzOiIUUooxfD7FAg81SI6P3V_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594395038242-snmf8hejj19rdaa3tomh9m1fpugrqa6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
