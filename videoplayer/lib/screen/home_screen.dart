@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:videoplayer/component/custom_video_plyaer.dart';
+import 'package:vid_player/component/custom_video_player.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,19 +14,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      body: video == null ? renderEmpty() : renderVideo() ,
+      body: video == null ? renderEmpty() : renderVideo(),
     );
   }
 
-  Widget renderVideo(){
-    return CustomVideoPlayer(
-      video: video!,
+  Widget renderVideo() {
+    return Center(
+      child: CustomVideoPlayer(
+        video: video!,
+        onNewVideoPressed: onNewVideoPressed,
+      ),
     );
   }
 
-  Widget renderEmpty(){
+  Widget renderEmpty() {
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: getBoxDecoration(),
@@ -34,28 +36,28 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _Logo(
-            onTap: onLogoTap,
+            onTap: onNewVideoPressed,
           ),
-          SizedBox(height: 30.0,),
+          SizedBox(height: 30.0),
           _AppName(),
         ],
       ),
     );
   }
 
-  void onLogoTap() async {
+  void onNewVideoPressed() async {
     final video = await ImagePicker().pickVideo(
-        source: ImageSource.gallery,
+      source: ImageSource.gallery,
     );
 
-    if(video != null){
+    if (video != null) {
       setState(() {
         this.video = video;
       });
     }
   }
 
-  BoxDecoration getBoxDecoration(){
+  BoxDecoration getBoxDecoration() {
     return BoxDecoration(
       gradient: LinearGradient(
         begin: Alignment.topCenter,
@@ -69,17 +71,17 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-
 class _Logo extends StatelessWidget {
   final VoidCallback onTap;
 
   const _Logo({
     required this.onTap,
-    Key? key}) : super(key: key);
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
+    return GestureDetector(
       onTap: onTap,
       child: Image.asset(
         'asset/image/logo.png',
@@ -87,7 +89,6 @@ class _Logo extends StatelessWidget {
     );
   }
 }
-
 
 class _AppName extends StatelessWidget {
   const _AppName({Key? key}) : super(key: key);
@@ -99,6 +100,7 @@ class _AppName extends StatelessWidget {
       fontSize: 30.0,
       fontWeight: FontWeight.w300,
     );
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
