@@ -78,24 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
       },
     );
   }
-}
-
-class _TopPart extends StatelessWidget {
-  final DateTime selectedDate;
-  final VoidCallback onPressed;
-
-  _TopPart({
-    required this.selectedDate,
-    required this.onPressed,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
-    final now = DateTime.now();
-
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -103,7 +85,25 @@ class _TopPart extends StatelessWidget {
           Text(
             'U&I',
             style: textTheme.headline1,
-          ),
+    }
+
+  class _TopPart extends StatelessWidget {
+  final DateTime selectedDate;
+  final VoidCallback onPressed;
+
+  _TopPart({
+  required this.selectedDate,
+  required this.onPressed,
+  Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+  final theme = Theme.of(context);
+  final textTheme = theme.textTheme;
+  final now = DateTime.now();
+
+  ),
           Column(
             children: [
               Text(
